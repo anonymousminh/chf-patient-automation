@@ -1,0 +1,22 @@
+{
+  "mappings": {
+    "properties": {
+      "patient_id": { "type": "keyword" },
+      "age": { "type": "integer" },
+      "gender": { "type": "keyword" },
+      "comorbidities": { "type": "keyword" },
+      "previous_readmissions": { "type": "integer" },
+      "discharge_date": { "type": "date" },
+      "date": { "type": "date" },
+      "weight": { "type": "float" },
+      "blood_pressure_systolic": { "type": "integer" },
+      "blood_pressure_diastolic": { "type": "integer" },
+      "heart_rate": { "type": "integer" },
+      "oxygen_saturation": { "type": "float" },
+      "medication_adherence": { "type": "boolean" },
+      "symptom_shortness_of_breath": { "type": "integer" },
+      "symptom_fatigue": { "type": "integer" },
+      "symptom_swelling": { "type": "integer" }
+    }
+  }
+}
