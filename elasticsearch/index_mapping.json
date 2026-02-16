@@ -18,7 +18,8 @@
       "symptom_fatigue": { "type": "integer" },
       "symptom_swelling": { "type": "integer" },
       "weight_gain_over_3_days": {"type": "float"},
-      "consecutive_missed_meds": {"type": "integer"}
+      "consecutive_missed_meds": {"type": "integer"},
+      "days_since_discharge": {"type": "integer"}
     }
   }
 }

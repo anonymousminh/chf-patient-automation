@@ -75,6 +75,7 @@ def generate_daily_time_series(base_info):
         record_date = discharge_date + timedelta(days=day)
         daily_record = base_info.copy()
         daily_record["date"] = record_date.isoformat()
+        days_since_discharge = (record_date - discharge_date).days
 
         # --- Simulate Data Based on Profile
         medication_adherence = True
@@ -120,7 +121,8 @@ def generate_daily_time_series(base_info):
             "oxygen_saturation": round(random.uniform(92, 99), 2),
             "medication_adherence": medication_adherence,
             "weight_gain_over_3_days": round(weight_gain_over_3_days, 2),
-            "consecutive_missed_meds": consecutive_missed_meds 
+            "consecutive_missed_meds": consecutive_missed_meds,
+            "days_since_discharge": days_since_discharge
         })
 
         daily_record.update(symptoms)
