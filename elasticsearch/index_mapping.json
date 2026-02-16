@@ -16,7 +16,9 @@
       "medication_adherence": { "type": "boolean" },
       "symptom_shortness_of_breath": { "type": "integer" },
       "symptom_fatigue": { "type": "integer" },
-      "symptom_swelling": { "type": "integer" }
+      "symptom_swelling": { "type": "integer" },
+      "weight_gain_over_3_days": {"type": "float"},
+      "consecutive_missed_meds": {"type": "integer"}
     }
   }
 }
