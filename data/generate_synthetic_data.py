@@ -62,6 +62,8 @@ def generate_all_patient_data():
 def generate_daily_time_series(base_info):
     """Generates 30 days of data for a single patient based on their profile"""
     records = []
+    daily_weights = []
+    daily_adherence = []
     current_weight = random.uniform(150.0, 250.0)
     discharge_date = datetime.fromisoformat(base_info["discharge_date"])
 
@@ -96,6 +98,19 @@ def generate_daily_time_series(base_info):
             medication_adherence = False # Miss medication for 3 consecutive days
             symptoms["symptom_fatigue"] = random.randint(5, 9)
 
+        daily_weights.append(current_weight)
+        daily_adherence.append(medication_adherence)
+
+        # --- Pre-calculate rolling metrics ---
+        weight_gain_over_3_days = 0
+        if day >= 3:
+            weight_3_days_ago = daily_weights[day - 3]
+            weight_gain_over_3_days = current_weight - weight_3_days_ago
+
+        consecutive_missed_meds = 0
+        if not medication_adherence and day >= 1 and not daily_adherence[day - 1]:
+            consecutive_missed_meds = 2
+
         # --- Populate final record ---
         daily_record.update({
             "weight": round(current_weight, 2),
@@ -103,7 +118,9 @@ def generate_daily_time_series(base_info):
             "blood_pressure_diastolic": random.randint(70, 100),
             "heart_rate": random.randint(60, 100),
             "oxygen_saturation": round(random.uniform(92, 99), 2),
-            "medication_adherence": medication_adherence 
+            "medication_adherence": medication_adherence,
+            "weight_gain_over_3_days": round(weight_gain_over_3_days, 2),
+            "consecutive_missed_meds": consecutive_missed_meds 
         })
 
         daily_record.update(symptoms)
