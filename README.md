@@ -39,6 +39,10 @@ We have built an intelligent monitoring system on the Elastic Stack that acts as
 4.  **Import Kibana Objects**: Import the `kibana/dashboard_export.ndjson` file to create the agent, dashboard, and all associated visualizations.
 5.  **Interact**: Go to the Agent chat or the Dashboard to see the system in action!
 
+## CHF Patient Monitoring Dashboard
+<img width="1502" height="859" alt="Patient Monitoring Dashboard" src="https://github.com/user-attachments/assets/f3948309-4de5-436c-bc87-e3bf44e35b65" />
+
+
 ---
 
 *This project was created for the Elasticsearch Hackathon 2026.*
